@@ -1,0 +1,9 @@
+<div class="pb-5" [ngClass]="{'pt-3': !emptyImage}" *ngIf="isVisible">
+  <div class="text-center">
+    <div class="empty" *ngIf="!emptyImage">
+      <div class="img" [style.background-image]="'url('+image+')'"></div>
+    </div>
+    <h5 class="font-open-sans" [ngClass]="{'pt-5': emptyImage}">{{message}}</h5>
+  </div>
+  <ng-content></ng-content>
+</div>

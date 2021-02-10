@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="business/create" class="nav-link" routerLinkActive="active">
+          Create Business
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="business" class="nav-link" routerLinkActive="active">
+          Business
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ng-template #loading>
+  <app-spinner-loading></app-spinner-loading>
+</ng-template>
+
+<main class="container pt-5">
+  <div class="card mb-5" *ngIf="(users$ | async); else loading; let users;">
+      <div class="card-header" >Users</div>
+      <app-empty-data [visible]="users?.total === 0"></app-empty-data>
+      <div class="card-block p-0">
+          <table class="table table-bordered table-striped table-hover table-sm m-0" *ngIf="users?.total > 0">
+              <thead class="">
+                  <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Login</th>
+                      <th>Email</th>
+                      <th>Ações</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let user of users?.data;">
+                      <td class="align-middle text-center">{{ user?.id }}</td>
+                      <td class="align-middle text-center">{{ user?.name }}</td>
+                      <td class="align-middle text-center">{{ user?.login }}</td>
+                      <td class="align-middle text-center">{{ user?.email }}</td>
+                      <td>
+                        <a [routerLink]="[user?.id, 'editar']" class="text-primary">
+                          <i class="fas fa-user-edit"></i>
+                        </a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+      </div>
+  </div>
+</main>

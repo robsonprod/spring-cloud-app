@@ -13,7 +13,9 @@ export class ApiService {
     'Access-Control-Allow-Origin': '*'
   });
 
-  url_base = "http://localhost:3000";
+  //Faker Js
+  //url_base = "http://localhost:3000";
+  url_base = "http://localhost:8081";
 
   private _uri: string;
 

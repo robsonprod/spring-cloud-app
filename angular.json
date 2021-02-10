@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "desafio-atlantico-app": {
+    "spring-cloud-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/desafio-atlantico-app",
+            "outputPath": "dist/spring-cloud-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "desafio-atlantico-app:build"
+            "browserTarget": "spring-cloud-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "desafio-atlantico-app:build:production"
+              "browserTarget": "spring-cloud-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "desafio-atlantico-app:build"
+            "browserTarget": "spring-cloud-app:build"
           }
         },
         "test": {
@@ -91,7 +91,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -114,18 +113,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "desafio-atlantico-app:serve"
+            "devServerTarget": "spring-cloud-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "desafio-atlantico-app:serve:production"
+              "devServerTarget": "spring-cloud-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "desafio-atlantico-app",
+  "defaultProject": "spring-cloud-app",
   "cli": {
     "analytics": false
   }

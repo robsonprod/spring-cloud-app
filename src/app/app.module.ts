@@ -12,22 +12,26 @@ import { HomeComponent } from './pages/home/home.component';
 import { SpinnerLoadingComponent } from './spinner-loading/spinner-loading.component';
 import { EmptyDataComponent } from './empty-data/empty-data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from "@angular/forms";
+import {RegisterComponent} from "./pages/register/register.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
     SpinnerLoadingComponent,
     EmptyDataComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

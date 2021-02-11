@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   loading: boolean = false;
 
   registerForm: FormGroup = this.fb.group({
-    firstName: ['', Validators.required],
+    name: ['', Validators.required],
     login: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(6)]]

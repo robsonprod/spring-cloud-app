@@ -36,7 +36,6 @@ export class ApiService {
           } else {
             errorMsg = ApiService.getServerErrorMessage(err);
           }
-
           return throwError(errorMsg);
         }),
         take(3)
@@ -77,7 +76,6 @@ export class ApiService {
       }
     }
   }
-
 
   set headers(params: HttpHeaders) {
     if (params != null) {

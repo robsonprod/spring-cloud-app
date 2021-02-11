@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Routes, RouterModule, Router } from "@angular/router";
 import { AuthService } from "../../service/auth/auth.service";
 
 @Component({
@@ -12,26 +13,20 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
 
   loginForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required, Validators.maxLength(10)]],
+    login: ['', [Validators.required, Validators.maxLength(10)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     checkbox: [false]
   });
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
 
   }
 
   ngOnInit(): void {
-  }
-
-  private login(username: string, password: string) {
-    this.loading = true;
-
-
-
   }
 
   onSubmit() {
@@ -45,19 +40,18 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  private login(username: string, password: string) {
+    this.loading = true;
+    console.log(`user -> ${this.loginForm.get('login')}, Pass -> ${this.loginForm.get('password')}`)
+    this.router.navigate(['/home']);
+  }
+
   get loginControl() {
     return this.loginForm.get('login') as FormControl;
   }
 
   get loginControlValid() {
-    return this.loginForm.touched && !this.loginControlInvalid;
-  }
-
-  get loginControlInvalid() {
-    return (
-      this.loginControl.touched &&
-      (this.loginControl.hasError('required') || this.loginControl.hasError('login'))
-    );
+    return this.loginForm.touched;
   }
 
   get passwordControl() {
@@ -71,8 +65,7 @@ export class LoginComponent implements OnInit {
   get passwordControlInvalid() {
     return (
       this.passwordControl.touched &&
-      (this.passwordControl.hasError('required') ||
-        this.passwordControl.hasError('minlength'))
+      (this.passwordControl.hasError('required'))
     );
   }
 

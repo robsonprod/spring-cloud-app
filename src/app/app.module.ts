@@ -13,7 +13,7 @@ import { SpinnerLoadingComponent } from './spinner-loading/spinner-loading.compo
 import { EmptyDataComponent } from './empty-data/empty-data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from "@angular/forms";
-import {RegisterComponent} from "./pages/register/register.component";
+import { RegisterComponent } from "./pages/register/register.component";
 
 @NgModule({
   declarations: [

@@ -24,11 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              {"input":"src/assets/css/bootstrap.min.css"},
               "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {

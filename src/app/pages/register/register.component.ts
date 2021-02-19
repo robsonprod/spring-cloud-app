@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     name: ['', Validators.required],
     login: ['', Validators.required],
     email: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [Validators.required, Validators.minLength(3)]]
   });
 
   constructor(
@@ -26,19 +26,22 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log("ngOnInit");
   }
 
-  private createUser(username: string, password: string) {
+  private signIn(name: string, login: string, email: string, password: string) {
     this.loading = true;
-
-
-
+    this.authService.signIn(name, login ,email, password).subscribe()
   }
 
   onSubmit() {
+    console.log("onsubmit");
+
     if (this.registerForm.status === 'VALID') {
-      this.createUser(this.loginControl.value, this.passwordControl.value);
+      this.signIn(this.nameControl.value,
+        this.loginControl.value,
+        this.emailControl.value,
+        this.passwordControl.value);
     }
 
     for (const key in this.registerForm.controls) {

@@ -7,7 +7,7 @@
           <h1>Login</h1>
          </div>
       </div>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+          <form [formGroup]="loginForm" (submit)="onSubmit()" >
             <div class="form-group">
               <label for="loginId">Login</label>
               <input type="text"
@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-12 text-center ">
               <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" [disabled]="loginForm.invalid || loading">
-                {{loading ? 'Aguarde...' : 'Login'}}
+                {{loading ? 'Loading...' : 'Login'}}
               </button>
             </div>
             <div class="col-md-12 ">

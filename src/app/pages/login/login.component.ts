@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
 
   loginForm: FormGroup = this.fb.group({
-    login: ['', [Validators.required, Validators.maxLength(10)]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    login: ['', [Validators.required, Validators.maxLength(3)]],
+    password: ['', [Validators.required, Validators.minLength(3)]],
     checkbox: [false]
   });
 
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.status === 'VALID') {
       this.login(this.loginControl.value, this.passwordControl.value);
+      console.log(this.loginControl.value, this.passwordControl.value);
     }
 
     for (const key in this.loginForm.controls) {
@@ -42,8 +43,10 @@ export class LoginComponent implements OnInit {
 
   private login(username: string, password: string) {
     this.loading = true;
-    console.log(`user -> ${this.loginForm.get('login')}, Pass -> ${this.loginForm.get('password')}`)
+    console.log(`user -> ${this.loginForm.get('login')}, Pass -> ${this.loginForm.get('password')}`);
+    this.loading = false;
     this.router.navigate(['/home']);
+    //this.authService.login().subscribe(res => { });
   }
 
   get loginControl() {
